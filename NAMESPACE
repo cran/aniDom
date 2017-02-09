@@ -1,0 +1,7 @@
+export(elo_scores,estimate_uncertainty_by_repeatability,estimate_uncertainty_by_splitting,generate_interactions,plot_hierarchy_shape,plot_ranks,plot_trajectories,plot_winner_prob)
+
+importFrom("stats", "quantile", "loess")
+importFrom("graphics", "arrows", "axis", "box", "lines", "plot")
+importFrom("stats", "cor", "rgamma")
+
+import("rptR")
