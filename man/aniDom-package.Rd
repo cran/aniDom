@@ -12,8 +12,8 @@ Provides (1) Tools to infer dominance hierarchies based on calculating Elo score
 \tabular{ll}{
 Package: \tab aniDom\cr
 Type: \tab Package\cr
-Version: \tab 0.1.3\cr
-Date: \tab 2018-03-10\cr
+Version: \tab 0.1.4\cr
+Date: \tab 2019-04-03\cr
 License: \tab GPL-2 \cr
 }
 }

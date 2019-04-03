@@ -15,13 +15,16 @@ function(identity, rank, winners, losers, fitted=FALSE) {
 		CI.lower[i] <- y[i] - sqrt(y[i]*(1-y[i])/sum(abs(xx)==x[i])) - 0.5/sum(abs(xx)==x[i])
 		CI.lower[i] <- max(CI.lower[i],0)
 	}
-	x <- x[!is.na(y)]
-	y <- y[!is.na(y)]
 	CI.upper <- CI.upper[!is.na(y)]
 	CI.lower <- CI.lower[!is.na(y)]
+	x <- x[!is.na(y)]
+	y <- y[!is.na(y)]
+	sizes <- sapply(x,function(x) { sum(abs(xx)==x)})
 
-	plot(x,y, xlab="Difference in rank", ylab="Probability that higher rank wins", ylim=c(min(0.5,min(y)),1), pch=20, cex=2)
-	arrows(x,CI.lower,x,CI.upper,length=0.1,angle=90,code=3)
+	plot(x,y, xlab="Difference in rank", ylab="Probability that higher rank wins", ylim=c(min(0.5,min(y)),1), pch=20, cex=3*(sizes/max(sizes)))
+	arrows(x,CI.lower,x,CI.upper,length=0.1,angle=90,code=3, lwd=2*(sizes/max(sizes)))
+
+	legend("bottomright", pch=c(20,20,20,20),pt.cex=3*rev(c(0.2,0.4,0.6,0.8)),legend=rev(c(round(0.2*max(sizes)),round(0.4*max(sizes)),round(0.6*max(sizes)),round(0.8*max(sizes)))),title="Interactions")
 
 	if (fitted) {
 		l <- loess(y~x)
