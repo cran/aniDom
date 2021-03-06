@@ -8,6 +8,8 @@ elo_scores<- function (winners, losers, identities = NULL, sigmoid.param = 1/100
   n.inds <- length(identities)
   if (randomise == FALSE) {
     n.rands <- 1
+  } else if (!is.null(dates)) {
+	stop("Cannot randomise and keep dates consistent")
   }
   if (sum(c(winners, losers) %in% identities) < length(c(winners, losers))) {
     stop("Not all winners and/or losers are contained in identities")
@@ -84,10 +86,14 @@ elo_scores<- function (winners, losers, identities = NULL, sigmoid.param = 1/100
     }
   }
   freq <- table(factor(c(winners, losers), levels = identities))
-  all.scores[which(identities %in% names(freq)[which(freq == 0)]), ] <- NA
+  if (length(dim(all.scores))==3) {
+  	all.scores[which(identities %in% names(freq)[which(freq == 0)]), , ] <- NA
+  } else {
+	all.scores[which(identities %in% names(freq)[which(freq == 0)]), ] <- NA
+  }
   if(!(is.null(dates))){#newly implemented if statement
-    all.dated.scores[which(identities %in% names(freq)[which(freq == 0)]), ] <- NA
-    invisible(all.dated.scores)
+   all.dated.scores[which(identities %in% names(freq)[which(freq == 0)]), ] <- NA
+   invisible(all.dated.scores)
   } else {
     if (return.as.ranks == TRUE) {
       all.ranks <- apply(all.scores, 2, function(x) {rank(-x)})

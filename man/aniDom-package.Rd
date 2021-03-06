@@ -12,15 +12,15 @@ Provides (1) Tools to infer dominance hierarchies based on calculating Elo score
 \tabular{ll}{
 Package: \tab aniDom\cr
 Type: \tab Package\cr
-Version: \tab 0.1.4\cr
-Date: \tab 2019-04-03\cr
+Version: \tab 0.1.5\cr
+Date: \tab 2021-03-06\cr
 License: \tab GPL-2 \cr
 }
 }
 \author{
 Written by Damien R. Farine and Alfredo Sanchez-Tojar
 
-Maintainer: Damien R. Farine <dfarine@orn.mpg.de>
+Maintainer: Damien R. Farine <damien.farine@ieu.uzh.ch>
 }
 \references{
 Sanchez-Tojar, A., Schroeder, J., Farine, D.R. (in prep) Methods for inferring dominance hierarchies and estimating their uncertainty.

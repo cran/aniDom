@@ -38,7 +38,7 @@ Sanchez-Tojar, A., Schroeder, J., Farine, D.R. (in prep) Methods for inferring d
 \author{
 Written by Damien R. Farine & Alfredo Sanchez-Tojar
 
-Maintainer: Damien R. Farine <dfarine@orn.mpg.de>
+Maintainer: Damien R. Farine <damien.farine@ieu.uzh.ch>
 }
 \examples{
 
